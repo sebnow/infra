@@ -15,6 +15,7 @@ modules/
   ssh.nix            # SSH server configuration
   vm.nix             # VM hardware and boot configuration
   ipfs.nix           # IPFS (Kubo) node configuration
+  adguardhome.nix    # AdGuard Home DNS ad blocker
 ```
 
 Every file in `modules/` is a flake-parts module
@@ -42,6 +43,8 @@ sudo ip link set br-vm up
 
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo iptables -t nat -A POSTROUTING -s 192.168.100.0/24 ! -o br-vm -j MASQUERADE
+sudo iptables -A FORWARD -i br-vm -o $(ip route show default | awk '{print $5}') -j ACCEPT
+sudo iptables -A FORWARD -o br-vm -m state --state RELATED,ESTABLISHED -j ACCEPT
 ```
 
 ### Before each VM start

@@ -9,6 +9,7 @@ in
       nixos.ssh
       nixos.admin
       nixos.ipfs
+      nixos.adguardhome
     ];
 
     nixpkgs.hostPlatform = "x86_64-linux";
