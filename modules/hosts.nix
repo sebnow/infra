@@ -8,6 +8,7 @@ in
       nixos.vm
       nixos.ssh
       nixos.admin
+      nixos.ipfs
     ];
 
     nixpkgs.hostPlatform = "x86_64-linux";
