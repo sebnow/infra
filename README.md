@@ -16,6 +16,10 @@ modules/
   vm.nix             # VM hardware and boot configuration
   ipfs.nix           # IPFS (Kubo) node configuration
   adguardhome.nix    # AdGuard Home DNS ad blocker
+  node-exporter.nix  # Prometheus node exporter for host metrics
+  prometheus.nix     # Prometheus metrics collection
+  grafana.nix        # Grafana dashboards and visualization
+  mimir.nix          # Mimir long-term metrics storage
 ```
 
 Every file in `modules/` is a flake-parts module

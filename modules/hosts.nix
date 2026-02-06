@@ -10,8 +10,14 @@ in
       nixos.admin
       nixos.ipfs
       nixos.adguardhome
+      nixos."node-exporter"
+      nixos.prometheus
+      nixos.grafana
+      nixos.mimir
     ];
 
     nixpkgs.hostPlatform = "x86_64-linux";
+
+    monitoring.scrapeTargets = [ "localhost:9100" ];
   };
 }
